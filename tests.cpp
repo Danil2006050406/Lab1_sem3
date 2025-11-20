@@ -19,9 +19,9 @@ void testBookAvailability() {
 void testReaderBorrowReturn() {
     Reader r("Alice", "U001", "alice@example.com");
     assert(r.borrow("123"));
-    assert(!r.borrow("123")); // повторне взяття
+    assert(!r.borrow("123")); 
     assert(r.returnBook("123"));
-    assert(!r.returnBook("123")); // повторне повернення
+    assert(!r.returnBook("123")); 
 }
 
 void testLoanStatus() {
@@ -78,7 +78,7 @@ void testLibraryIssueBookDuplicate() {
     lib.addBook(Book("1984", "Orwell", "123", 1949, 2));
     lib.addReader(Reader("Alice", "U001", "alice@example.com"));
     assert(lib.issueBook("123", "U001"));
-    assert(!lib.issueBook("123", "U001")); // повторне взяття
+    assert(!lib.issueBook("123", "U001")); 
 }
 
 void testLibraryReturnBookSuccess() {
@@ -109,7 +109,7 @@ void testReaderListBorrowed() {
     Reader r("Alice", "U001", "alice@example.com");
     r.borrow("123");
     r.borrow("456");
-    r.listBorrowed(); // просто вивід
+    r.listBorrowed(); 
 }
 
 void testUserNotify() {
@@ -119,7 +119,7 @@ void testUserNotify() {
 
 void testPolymorphicDisplay() {
     User* u1 = new Reader("Alice", "U001", "alice@example.com");
-    u1->displayInfo(); // викликає Reader::displayInfo()
+    u1->displayInfo(); 
     delete u1;
 }
 
@@ -129,7 +129,7 @@ void testMultipleLoans() {
     lib.addReader(Reader("Alice", "U001", "alice@example.com"));
     assert(lib.issueBook("111", "U001"));
     assert(lib.returnBook("111", "U001"));
-    assert(lib.issueBook("111", "U001")); // повторна видача після повернення
+    assert(lib.issueBook("111", "U001")); 
 }
 
 void testBookCheckinCheckoutBalance() {
@@ -157,7 +157,6 @@ void testPolymorphismBookHierarchy() {
     Book* items[3] = { b1, b2, b3 };
 
     for (Book* b : items) {
-        // Поліморфний виклик: викликається реалізація відповідно до реального типу
         b->displayInfo();
         double cost = b->getBorrowingCost();
         assert(cost > 0.0);
