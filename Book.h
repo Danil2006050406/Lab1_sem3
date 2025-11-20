@@ -1,7 +1,6 @@
 #pragma once
 #include <string>
 
-// ===== Base class Book =====
 class Book {
 private:
     std::string title;
@@ -18,18 +17,15 @@ public:
         int copies = 1);
     virtual ~Book() = default;
 
-    // --- GETTERS (потрібні бібліотеці та для виводу) ---
     const std::string& getTitle() const;
     const std::string& getAuthor() const;
     const std::string& getISBN()   const;
     int  getYear()        const;
     int  getTotalCopies() const;
 
-    // --- Поліморфні методи ---
     virtual void   displayInfo() const;
     virtual double getBorrowingCost() const;
 
-    // --- Інші методи ---
     bool matchesTitle(const std::string& q) const;
     bool checkout();
     void checkin();
@@ -37,7 +33,6 @@ public:
     bool isAvailable() const;
 };
 
-// ===== 2-й рівень: EBook =====
 class EBook : public Book {
 private:
     std::string downloadUrl;
@@ -57,7 +52,6 @@ public:
     double getBorrowingCost() const override;
 };
 
-// ===== 3-й рівень: SpecialEditionEBook =====
 class SpecialEditionEBook : public EBook {
 private:
     bool hasBonusContent;
