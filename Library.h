@@ -7,9 +7,9 @@
 
 class Library {
 private:
-    std::vector<Book> books;
+    std::vector<Book>   books;
     std::vector<Reader> readers;
-    std::vector<Loan> loans;
+    std::vector<Loan>   loans;
 
 public:
     void addBook(const Book& book);
@@ -21,7 +21,11 @@ public:
     bool issueBook(const std::string& isbn, const std::string& readerId);
     bool returnBook(const std::string& isbn, const std::string& readerId);
 
-    void listBooks() const;
+    void listBooks()   const;
     void listReaders() const;
-    void listLoans() const;
+    void listLoans()   const;
+
+    //  Додано для дебагу
+    int getBooksCount() const { return static_cast<int>(books.size()); }
+    int getReadersCount() const { return static_cast<int>(readers.size()); }
 };
