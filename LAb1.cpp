@@ -8,7 +8,6 @@
 #include <sstream>
 #include <string>
 
-// books.txt:  Title;Author;ISBN;Year;Copies
 void loadBooksFromFile(Library& lib, const std::string& filename) {
     std::ifstream file(filename);
     if (!file) {
@@ -43,7 +42,6 @@ void loadBooksFromFile(Library& lib, const std::string& filename) {
     }
 }
 
-// readers.txt:  Name;Id;Email
 void loadReadersFromFile(Library& lib, const std::string& filename) {
     std::ifstream file(filename);
     if (!file) {
@@ -75,11 +73,9 @@ void loadReadersFromFile(Library& lib, const std::string& filename) {
 int main() {
     Library lib;
 
-    // читаем з .txt
     loadBooksFromFile(lib, "books.txt");
     loadReadersFromFile(lib, "readers.txt");
 
-    // чтобы были займы
     lib.issueBook("1234567890", "U001");
     lib.issueBook("2345678901", "U002");
     lib.issueBook("4567890123", "U003");
@@ -88,7 +84,6 @@ int main() {
     lib.issueBook("3456789012", "U005");
     lib.returnBook("4567890123", "U003");
 
-    // выводим всё, что нужно по лабе
     lib.listBooks();
     lib.listReaders();
     lib.listLoans();
