@@ -3,8 +3,6 @@
 #include <algorithm>
 #include <cctype>
 
-// ===== Book =====
-
 Book::Book(const std::string& t,
     const std::string& a,
     const std::string& i,
@@ -17,7 +15,6 @@ Book::Book(const std::string& t,
     totalCopies(copies) {
 }
 
-// --- getters ---
 const std::string& Book::getTitle() const {
     return title;
 }
@@ -38,7 +35,6 @@ int Book::getTotalCopies() const {
     return totalCopies;
 }
 
-// --- behavior ---
 void Book::displayInfo() const {
     std::cout << "Book: '" << title << "' by " << author
         << " (" << year << ") ISBN: " << isbn
@@ -48,7 +44,7 @@ void Book::displayInfo() const {
 }
 
 double Book::getBorrowingCost() const {
-    return 1.0; // базова вартість
+    return 1.0; 
 }
 
 bool Book::matchesTitle(const std::string& q) const {
@@ -81,8 +77,6 @@ bool Book::isAvailable() const {
     return totalCopies > 0;
 }
 
-// ===== EBook =====
-
 EBook::EBook(const std::string& t,
     const std::string& a,
     const std::string& i,
@@ -105,10 +99,8 @@ void EBook::displayInfo() const {
 }
 
 double EBook::getBorrowingCost() const {
-    return 0.5; // електронні книги дешевші
+    return 0.5; 
 }
-
-// ===== SpecialEditionEBook =====
 
 SpecialEditionEBook::SpecialEditionEBook(const std::string& t,
     const std::string& a,
