@@ -1,6 +1,6 @@
 ﻿#include "Loan.h"
-#include <cmath>     // для ceil
-#include <ctime>     // для time, difftime
+#include <cmath>    
+#include <ctime>     
 
 Loan::Loan(const std::string& lid, const std::string& isbn, const std::string& uid,
     time_t loanD, time_t dueD)
